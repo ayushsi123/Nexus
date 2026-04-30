@@ -409,14 +409,17 @@ export function LandingPage() {
 
       {/* Features Section */}
       <section id="features" ref={featuresRef} className="reveal-section py-24 px-6 max-w-7xl mx-auto overflow-hidden">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-20 space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold font-display px-2">Powerful tools to <span className="gradient-text">scale your business</span></h2>
+          <p className="text-text-secondary text-lg md:text-xl font-medium max-w-3xl mx-auto">
+            Built real-world SaaS dashboards with scalable architecture, data handling, and modern UI systems.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Card 1: Dashboard Analytics */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -428,44 +431,42 @@ export function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold font-display">Real-time Analytics Dashboard</h3>
               <p className="text-text-secondary leading-relaxed text-sm">
-                Track users, revenue, and performance with clean, fast-loading dashboards that keep you ahead of the curve.
+                Visualize key metrics like users, revenue, and growth with fast, interactive dashboards that keep you ahead.
               </p>
               <div className="flex items-center gap-2 text-blue-500 text-[10px] font-bold uppercase tracking-widest pt-2">
-                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" /> Live Performance
+                 <div className="w-4 h-4 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
+                 </div>
+                 Live Performance
               </div>
             </div>
             
-            <div className="w-full lg:w-48 h-40 glass rounded-2xl border-white/10 p-4 space-y-3 shrink-0 bg-black/20">
-               <div className="flex justify-between items-center bg-white/5 rounded-lg p-2">
-                  <div className="w-8 h-2 bg-white/20 rounded-full" />
-                  <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                  </div>
+            <div className="w-full lg:w-48 h-44 glass rounded-2xl border-white/10 p-4 space-y-3 shrink-0 bg-black/20 group-hover:bg-black/40 transition-colors">
+               <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <div className="w-10 h-1.5 bg-white/20 rounded-full" />
+                  <div className="text-[10px] font-bold text-green-400">+2.4%</div>
                </div>
-               <div className="flex gap-1 items-end h-16 pt-2">
-                  {[30, 60, 40, 80, 50, 90, 70].map((h, i) => (
-                    <div 
+               <div className="flex gap-1.5 items-end h-16 pt-2">
+                  {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
+                    <motion.div 
                       key={i} 
-                      className="flex-1 bg-blue-500/30 rounded-t-sm"
-                      style={{ height: `${h}%` }}
+                      className="flex-1 bg-blue-500/40 rounded-t-sm"
+                      initial={{ height: 0 }}
+                      whileInView={{ height: `${h}%` }}
+                      transition={{ delay: 0.5 + (i * 0.1), duration: 1 }}
                     />
                   ))}
                </div>
-               <div className="space-y-1.5">
-                  <div className="h-1 bg-white/10 w-full rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 w-[75%]" />
-                  </div>
-                  <div className="flex justify-between text-[8px] text-text-secondary">
-                    <span>REVENUE</span>
-                    <span>$12,400</span>
-                  </div>
+               <div className="pt-2 flex justify-between">
+                  <div className="w-8 h-1 bg-white/10 rounded-full" />
+                  <div className="w-12 h-1 bg-white/5 rounded-full" />
                </div>
             </div>
           </motion.div>
 
           {/* Card 2: User Management */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -477,33 +478,33 @@ export function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold font-display">Advanced User Management</h3>
               <p className="text-text-secondary leading-relaxed text-sm">
-                Manage users with search, filters, and full CRUD functionality. Powerful control for growing teams.
+                Full CRUD operations with intelligent search, custom filters, and role-based UI handling for growing teams.
               </p>
               <div className="flex items-center gap-2 text-purple-400 text-[10px] font-bold uppercase tracking-widest pt-2">
-                 <ShieldCheck className="w-4 h-4" /> Secure Access
+                 <ShieldCheck className="w-4 h-4" /> Role Enforcement
               </div>
             </div>
             
-            <div className="w-full lg:w-48 h-40 glass rounded-2xl border-white/10 p-4 space-y-2 shrink-0 bg-black/20">
+            <div className="w-full lg:w-48 h-44 glass rounded-2xl border-white/10 p-4 space-y-2.5 shrink-0 bg-black/20 group-hover:bg-black/40 transition-colors">
                {[1, 2, 3].map(i => (
-                 <div key={i} className="flex items-center gap-3 p-1.5 bg-white/5 rounded-xl border border-white/5">
-                    <div className="w-6 h-6 rounded-full bg-linear-to-br from-purple-500/40 to-pink-500/40" />
+                 <div key={i} className="flex items-center gap-3 p-1.5 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-linear-to-br from-purple-500 to-pink-500 opacity-60" />
                     <div className="flex-1 space-y-1">
-                       <div className="h-1.5 w-1/2 bg-white/20 rounded-full" />
-                       <div className="h-1.2 w-full bg-white/5 rounded-full" />
+                       <div className="h-1.5 w-1/2 bg-white/30 rounded-full" />
+                       <div className="h-1 w-full bg-white/5 rounded-full" />
                     </div>
                  </div>
                ))}
-               <div className="h-6 w-full bg-purple-500/20 rounded-lg flex items-center px-2 justify-between">
-                  <div className="w-10 h-1.5 bg-purple-400/50 rounded-full" />
-                  <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+               <div className="flex items-center justify-between pt-1">
+                  <div className="h-4 w-12 bg-purple-500/20 rounded-md" />
+                  <div className="w-8 h-2 bg-white/5 rounded-full" />
                </div>
             </div>
           </motion.div>
 
           {/* Card 3: Scalable Architecture */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -511,44 +512,48 @@ export function LandingPage() {
           >
             <div className="flex-1 space-y-4">
               <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-accent-end/20 to-accent-end/5 flex items-center justify-center text-accent-end group-hover:scale-110 transition-transform">
-                <Zap className="w-7 h-7" />
+                <Globe className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold font-display">Built for Scale</h3>
+              <h3 className="text-2xl font-bold font-display">Built for Performance</h3>
               <p className="text-text-secondary leading-relaxed text-sm">
-                Optimized frontend with React and API-driven backend for high performance at any volume.
+                Optimized using modern React frameworks and API-driven architecture for blazing speed and effortless scalability.
               </p>
               <div className="flex items-center gap-2 text-accent-end text-[10px] font-bold uppercase tracking-widest pt-2">
-                 <Shapes className="w-4 h-4" /> Global Delivery
+                 <Zap className="w-4 h-4 fill-current" /> sub-100ms API
               </div>
             </div>
             
-            <div className="w-full lg:w-48 h-40 glass rounded-2xl border-white/10 p-4 relative overflow-hidden shrink-0 bg-black/20 flex flex-col justify-center">
-               <div className="flex justify-between items-center">
-                  <div className="w-10 h-10 rounded-xl bg-accent-end/10 border border-accent-end/20 flex items-center justify-center">
-                    <Monitor className="w-4 h-4 text-accent-end opacity-50" />
-                  </div>
-                  <div className="flex-1 h-px bg-linear-to-r from-accent-end/20 via-accent-end/60 to-accent-end/20 relative">
-                    <motion.div 
-                      className="absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent-end rounded-full shadow-[0_0_8px_white]"
-                      animate={{ left: ['0%', '100%'] }}
-                      transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-                    />
-                  </div>
-                  <div className="w-10 h-10 rounded-xl bg-accent-end/30 border border-accent-end/40 flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-accent-end" />
+            <div className="w-full lg:w-48 h-44 glass rounded-2xl border-white/10 p-5 shrink-0 bg-black/20 group-hover:bg-black/40 transition-colors flex flex-col justify-center">
+               <div className="relative h-20 w-full">
+                  <div className="absolute top-1/2 left-0 w-full h-px bg-white/10" />
+                  <motion.div 
+                    className="absolute top-1/2 -mt-[2px] w-1 h-1 bg-accent-end rounded-full shadow-[0_0_10px_white]"
+                    animate={{ left: ['0%', '100%'] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+                  />
+                  <div className="flex justify-between items-center h-full relative z-10 px-2">
+                    <div className="w-10 h-10 rounded-lg bg-accent-end/10 border border-accent-end/20 flex items-center justify-center">
+                      <Monitor className="w-4 h-4 text-accent-end opacity-40" />
+                    </div>
+                    <div className="w-10 h-10 rounded-lg bg-accent-end/20 border border-accent-end/40 flex items-center justify-center rotate-45 group-hover:rotate-0 transition-transform">
+                      <Shapes className="w-5 h-5 text-accent-end" />
+                    </div>
                   </div>
                </div>
-               <div className="mt-4 flex gap-1 justify-center">
-                  {[1, 2, 3, 4, 5].map(i => (
-                    <div key={i} className="h-1 w-4 bg-accent-end/20 rounded-full" />
-                  ))}
+               <div className="mt-4 h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                  <motion.div 
+                    className="h-full bg-accent-end/60"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '85%' }}
+                    transition={{ duration: 1.5, delay: 0.8 }}
+                  />
                </div>
             </div>
           </motion.div>
 
           {/* Card 4: UI/UX */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -560,28 +565,35 @@ export function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold font-display">Premium User Experience</h3>
               <p className="text-text-secondary leading-relaxed text-sm">
-                Smooth animations, responsive design, and intuitive interfaces crafted for modern web experiences.
+                Smooth GSAP animations, responsive layouts, and clean UI systems built for usability and visual excellence.
               </p>
               <div className="flex items-center gap-2 text-blue-400 text-[10px] font-bold uppercase tracking-widest pt-2">
-                 <Zap className="w-4 h-4 fill-current" /> High Fidelity
+                 <ArrowRight className="w-4 h-4" /> Motion Optimized
               </div>
             </div>
             
-            <div className="w-full lg:w-48 h-40 glass rounded-2xl border-white/10 p-5 shrink-0 bg-black/20 overflow-hidden relative">
+            <div className="w-full lg:w-48 h-44 glass rounded-2xl border-white/10 p-5 shrink-0 bg-black/20 group-hover:bg-black/40 transition-colors overflow-hidden relative">
                <div className="space-y-3 relative z-10">
-                  <div className="h-2 w-3/4 bg-blue-400/30 rounded-full" />
-                  <div className="h-10 w-full bg-linear-to-r from-blue-400/20 to-transparent rounded-xl border border-blue-400/20 p-2 overflow-hidden">
-                    <div className="flex gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-blue-400/30" />
-                      <div className="flex-1 h-3 bg-blue-400/20 rounded-full mt-1.5" />
-                    </div>
+                  <div className="flex justify-between">
+                    <div className="h-6 w-6 rounded-lg bg-blue-400/20" />
+                    <div className="h-2 w-16 bg-white/10 rounded-full mt-2" />
                   </div>
+                  <motion.div 
+                    className="h-10 w-full bg-linear-to-r from-blue-400/30 to-transparent rounded-xl border border-blue-400/20 p-2 overflow-hidden flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="w-full h-1 bg-blue-400/40 rounded-full" />
+                  </motion.div>
                   <div className="flex gap-2">
-                     <div className="h-8 w-1/2 bg-blue-400/10 rounded-lg border border-blue-400/10" />
-                     <div className="h-8 w-1/2 bg-blue-400/50 rounded-lg shadow-[0_0_15px_rgba(96,165,250,0.4)]" />
+                     <div className="h-12 flex-1 bg-blue-400/5 rounded-lg border border-blue-400/10 flex items-center justify-center">
+                        <div className="w-4 h-4 rounded-full border border-blue-400/30" />
+                     </div>
+                     <div className="h-12 flex-1 bg-blue-400/60 rounded-lg shadow-[0_0_20px_rgba(96,165,250,0.5)] flex items-center justify-center">
+                        <div className="w-4 h-4 bg-white/20 rounded-full" />
+                     </div>
                   </div>
                </div>
-               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-400/10 blur-[30px] rounded-full" />
+               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-400/10 blur-[40px] rounded-full" />
             </div>
           </motion.div>
         </div>

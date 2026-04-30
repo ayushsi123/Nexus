@@ -1,6 +1,9 @@
 {
-  "name": "Nexus SaaS Dashboard",
-  "description": "A premium client management dashboard for businesses to track performance, manage users, and view real-time analytics with motion-driven UI.",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
+  "name": "Nexus | Enterprise SaaS Platform",
+  "description": "Built real-world SaaS dashboards with scalable architecture, data handling, and modern UI systems.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
 }
